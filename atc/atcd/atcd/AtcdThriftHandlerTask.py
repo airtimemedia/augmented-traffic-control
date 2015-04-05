@@ -164,6 +164,11 @@ class AtcdThriftHandlerTask(ThriftHandlerTask):
         help='Amount of bytes that can be burst at a capped speed '
                 '[%(default)s]'
     )
+    dont_drop_packets = option(
+        action='store_true',
+        help='Do not drop packets when going above max allowed rate. Packets'
+            ' will be queued instead.',
+    )
     fresh_start = option(
         action='store_true',
         help='Bypass saved shapings from a previous run [%(default)s]',
