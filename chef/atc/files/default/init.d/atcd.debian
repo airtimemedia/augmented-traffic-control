@@ -39,7 +39,7 @@ start() {
     atcd="$(which ${name})"
     [ -x $atcd ] || exit 5
     echo -n "Starting $name: "
-    start-stop-daemon --start --pidfile $pidfile --exec $atcd -- --pidfile $pidfile --daemon --thrift-host ${ATCD_LISTEN_ADDRESS} --thrift-port ${ATCD_LISTEN_PORT} --sqlite-file ${ATCD_SQLITE} --atcd-lan ${ATCD_LAN} --atcd-wan ${ATCD_WAN} --atcd-mode ${ATCD_MODE}
+    start-stop-daemon --start --pidfile $pidfile --exec $atcd -- --pidfile $pidfile --daemon --thrift-host ${ATCD_LISTEN_ADDRESS} --thrift-port ${ATCD_LISTEN_PORT} --sqlite-file ${ATCD_SQLITE} --atcd-lan ${ATCD_LAN} --atcd-wan ${ATCD_WAN} --atcd-mode ${ATCD_MODE} --atcd-dont-drop-packets
     retval=$?
     echo
     [ $retval -eq 0 ] && touch $lockfile
